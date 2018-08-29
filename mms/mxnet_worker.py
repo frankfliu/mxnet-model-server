@@ -177,7 +177,7 @@ class MxNetWorker(object):
                         response = self.predict_callback(model_name, request)
                     except Exception:  # pylint: disable=broad-except
                         print(str(traceback.format_exc()))
-                        response = ["Unkown inference error."]
+                        response = [b'Unkown inference error.']
 
                     print("Predict latency: {}".format((time.time() - begin) * 1000))
 

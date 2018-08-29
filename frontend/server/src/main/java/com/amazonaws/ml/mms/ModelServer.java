@@ -69,11 +69,12 @@ public class ModelServer {
     }
 
     public void initModelStore() throws InvalidModelException, WorkerInitializationException {
-        logger.debug("Loading initial models...");
         WorkLoadManager wlm = new WorkLoadManager(configManager, serverGroups.getMxnetGroup());
         ModelManager.init(configManager, wlm);
 
         File modelStore = new File(configManager.getModelStore());
+        logger.debug("Loading initial models from {} ...", modelStore.getAbsolutePath());
+
         if (modelStore.exists()) {
             ModelManager modelManager = ModelManager.getInstance();
             String loadModels = configManager.getLoadModels();

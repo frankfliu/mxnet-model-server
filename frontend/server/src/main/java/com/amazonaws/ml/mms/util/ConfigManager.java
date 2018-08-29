@@ -41,8 +41,10 @@ public final class ConfigManager {
             filePath = System.getProperty("mmsConfigFile", "config.properties");
         }
 
+System.out.println("configuration file:" + filePath);
         File file = new File(filePath);
         if (file.exists()) {
+System.out.println("Loading configuration file:" + file.getAbsolutePath());
             try (FileInputStream stream = new FileInputStream(file)) {
                 prop.load(stream);
             } catch (IOException e) {
@@ -95,6 +97,7 @@ public final class ConfigManager {
                 mmsHome = getProperty(MODEL_SERVER_HOME, dir.getAbsolutePath());
             }
         }
+System.out.println("mmsHome:" + mmsHome);
         return mmsHome;
     }
 
