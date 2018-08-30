@@ -517,6 +517,6 @@ class ServingFrontend(object):
             logger.error(msg)
             abort(500, "Service setting error. %s" % msg)
 
-        logger.debug("Prediction request handling time is: %s ms",
-                     ((time.time() - handler_start_time) * 1000))
+        #logger.debug("Prediction request handling time is: %s ms",
+        #             ((time.time() - handler_start_time) * 1000))
         return self.handler.jsonify({'prediction': response})
